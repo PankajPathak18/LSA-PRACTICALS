@@ -1,32 +1,35 @@
-                                 Practical no.-2
+                                   Practical no.-2
 
 Aim   :Initial settings: Add a User, Network Settings, Change to static IP address, Disable IPv6 if not needed, Configure Services,
        display the list of services which are running, Stop and turn OFF auto-start setting for a service if you don’t 
        need it, Sudo Settings.
        
-Steps :
+Steps:-
+
+
 Step1 : Addng a user:- user can be able to access  a file means read or write,A user can be added one or more added in a group too.
         command to add a user syntax is : $sudo adduser <username>
-        In machine  e.g :- $sudo adduser pankaj_user
+        In machine  e.g :- pankali@kali:~$sudo adduser pankaj_user
 
 Step2 : Network settings: the ip address and the ethernet connections and other network connections can be viewed using the--
-        the is command: $sudo ip a   (or)  $sudo ip addr
+        the is command: pankali@kali:~$sudo ip a   (or)  $sudo ip addr
 
 step3 :Configuring services: services are also known as daemons which efficiently run in the background, services usually have a 'd' in last 
        of their name to identify it as a daemon for example - smbd , nmbd,etc
        services can be lookout in the /etc/ folder as mostly the services lie there for 
-       example: $sudo nano /etc/dhcp/dhcpd.conf 
+       example:-
+       pankali@kali:~$sudo nano /etc/dhcp/dhcpd.conf 
 
 step4 : List of services running: command to list the currently active and running services:-
-         cmd : $sudo systemctl
+         cmd : pankali@kali:~$sudo systemctl
 
-step5 :Command enable a service:                 $sudo systemctl enable <service_name>
+step5 :Command enable a service:                 pankali@kali:~$sudo systemctl enable <service_name>
 
-step6 :Command start a service:                  $sudo systemctl start <service_name>
+step6 :Command start a service:                  pankali@kali:~$sudo systemctl start <service_name>
 
-step7 :Command check the status of a service:    $sudo systemctl status <service_name>
+step7 :Command check the status of a service:    pankali@kali:~$sudo systemctl status <service_name>
 
-step8 :Command stop a service:                   $sudo systemctl stop <service_name>
+step8 :Command stop a service:                   pankali@kali:~$sudo systemctl stop <service_name>
 
-step9 :Command auto-start a service:             $sudo systemctl restart <service_name>
+step9 :Command auto-start a service:             pankali@kali:~$sudo systemctl restart <service_name>
 
