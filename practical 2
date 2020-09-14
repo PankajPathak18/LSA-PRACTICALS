@@ -5,7 +5,7 @@ Aim   :Initial settings: Add a User, Network Settings, Change to static IP addre
 Steps :
 Step1 : Addng a user:- user can be able to access  a file means read or write,A user can be added one or more added in a group too.
         command to add a user syntax is : $sudo adduser <username>
-        In machine  e.g :- $sudo adduser lsa_user
+        In machine  e.g :- $sudo adduser pankaj_user
 
 Step2 : Network settings: the ip address and the ethernet connections and other network connections can be viewed using the--
         the is command: $sudo ip a   (or)  $sudo ip addr
