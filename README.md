@@ -1,2 +1,2 @@
 # LSA_Practicals
-LSA_All_Practical
+LSA_All_Practicals
