@@ -1,8 +1,10 @@
+                               Practical no. -1                     
+                     
 Aim   : Install DHCP Server.
 
 DHCP Theory: DHCP stands for dynamic host configuration protocol & it's a network protocol that use for on a ip network
-        i.e  a DHCP server automatically  assign ip address and other info  to each host on the network
-        so they can communicate with other point.
+             i.e  a DHCP server automatically  assign ip address and other info  to each host on the network
+             so they can communicate with other point.
         
 
 Steps->
