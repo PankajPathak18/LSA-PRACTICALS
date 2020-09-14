@@ -1,0 +1,25 @@
+Aim   :Initial settings: Add a User, Network Settings, Change to static IP address, Disable IPv6 if not needed, Configure Services,
+       display the list of services which are running, Stop and turn OFF auto-start setting for a service if you don’t 
+       need it, Sudo Settings.
+       
+Steps:
+Step1 : Addng a user: 
+                  A user can be added one or more added in a group too.
+  command to add a user syntax is : $sudo adduser <username>
+      in machine e.g :- $sudo adduser lsa_user
+
+2.) Network settings: The ip address and the ethernet connections and other network connections can be viewed using the :
+    comand: $sudo ip a   (or)  $sudo ip addr
+
+3.) Configuring services: services are also known as daemons which efficiently run in the background, services usually have a 'd' in last 
+                          of their name to identify it as a daemon for example - smbd , nmbd,etc
+    services can be lookout in the /etc/ folder as mostly the services lie there for example: $sudo nano /etc/dhcp/dhcpd.conf 
+
+4.) List of services running: command to list the currently active and running services:- $sudo systemctl
+
+5.) Command enable a service:                 $sudo systemctl enable <service_name>
+    Command start a service:                  $sudo systemctl start <service_name>
+    Command check the status of a service:    $sudo systemctl status <service_name>
+    Command stop a service:                   $sudo systemctl stop <service_name>
+    Command auto-start a service:             $sudo systemctl restart <service_name>
+
