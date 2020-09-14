@@ -1,3 +1,5 @@
+                                 Practical no.-2
+
 Aim   :Initial settings: Add a User, Network Settings, Change to static IP address, Disable IPv6 if not needed, Configure Services,
        display the list of services which are running, Stop and turn OFF auto-start setting for a service if you don’t 
        need it, Sudo Settings.
