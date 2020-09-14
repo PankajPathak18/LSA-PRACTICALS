@@ -1,24 +1,38 @@
-Aim   : Install DHCP Server 
-Theory: DHCP stands for dynamic host configuration protocol & it's a network protocol that use for on a ip network
+Aim   : Install DHCP Server.
+
+DHCP Theory: DHCP stands for dynamic host configuration protocol & it's a network protocol that use for on a ip network
         i.e  a DHCP server automatically  assign ip address and other info  to each host on the network
         so they can communicate with other point.
         
 
 Steps->
 
-Step1:Command-install dhcp-server:-  $sudo apt install -y isc-dhcp-server
+Step1:Command-install dhcp-server.  
+example :-
+pankali@kali:~$sudo apt install -y isc-dhcp-server
 
-Step2:Now we configure dhcpd.conf by directly editing through a path :- $sudo nano /etc/dhcp/dhcpd.conf
+Step2:Now we configure dhcpd.conf by directly editing through a path 
+example:-
+pankali@kali:~$sudo nano /etc/dhcp/dhcpd.conf
 
-Step3:finding machine ip address by:- $ip a (or)  $ip addr
+Step3:finding machine ip address by.
+example:-
+pankali@kali:~$ip a (or)  $ip addr
 
-Step4: then configure the subnet  and the netmask -- then save the file or exit
+Step4: then configure the subnet  and the netmask -
+       -then save the file or exit
 
-Step5:now we are enable the services using this command:- $sudo systemctl enable isc-dhcp-server.service
+Step5:now we are enable the services using this command.
+example:-
+pankali@kali:~$sudo systemctl enable isc-dhcp-server.service
 
-Step6:start the service :- $sudo systemctl start isc-dhcp-server.service
+Step6:start the service 
+example:- 
+pankali@kali:~$sudo systemctl start isc-dhcp-server.service
 
-Step7:stop the service :- $sudo systemctl stop isc-dhcp-server.service
+Step7:stop the service 
+example:- 
+pankali@kali:~$sudo systemctl stop isc-dhcp-server.service
 
 
 
