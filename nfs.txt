@@ -1,0 +1,41 @@
+                                     Practical No: 6
+*Aim   :Configure NFS server to share directories or files on your network.
+*Theory:Network File System (NFS) is a client/server application that lets a computer user view and optionally store and 
+        update files on a remote computer as though they were on the user's own computer.The NFS protocol is one of several 
+        distributed file system standards for network-attached storage(NAS).
+ 
+*Steps:
+
+step1: install NFS server:
+       pankali@kali:~$ sudo apt-get -y install kernel-server
+       pankali@kali:~$ sudo apt-get -y install nfs-kernel-server
+
+step2:Command to enable a service:  
+      pankali@kali:~$ sudo systemctl enable nfs-kernel-server
+
+step3:create directory,vi mode,show file ,moving to dir,show file
+      pankali@kali:~$ mkdir hello_dir
+      pankali@kali:~$ vi pankaj.txt
+      pankali@kali:~$ ls pankaj.txt
+      pankali@kali:~$ mv a.txt demo_dir
+      pankali@kali:~$ ls /home/pankali/hello_dir
+
+step4:Now we have to mention our /directory_path ip_address (permissions), we need to give rw (read,write) permission,
+   the commands for this is as follows:
+
+   pankali@kali:~$ sudo vi /etc/exports
+   pankali@kali:~$cat /etc/exports
+   -After /directory_path ip_address (permissions)
+      /home/pankali/hello_dir 127.0.0.1(rw)
+
+
+5. Now  exports:
+   pankali@kali:~$ sudo exportfs -ra
+
+6. To allow file sharing between systems on your network
+   pankali@kali:~$ sudo apt-get -y install nfs-common
+step7Now to mount the file:
+   pankali@kali:~$ sudo mount -t nfs 127.0.01:/home/pankali/hello_dir /home/hello_directory
+step8:the mounted file in the directory that user has made:
+   pankali@kali:~$ cd /home/hello_directory
+step9:ls
