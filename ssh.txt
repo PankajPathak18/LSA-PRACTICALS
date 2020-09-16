@@ -1,0 +1,35 @@
+                          Practical No: 4
+
+Aim: SSH server-Password Authentication Configure SSH server.
+
+Theory:SSH stands for - Secured Shell.typically use for  remote login vs password 
+security a solution called Secured Shell (SSH) was developed.
+It is a suite of network communication tools that are collectively based on protocol/standard 
+The SSH command provides a secure encrypted connection between two hosts over an insecure network.
+The connection can also be used for terminal access, file transfers & for tunelling other applications. 
+SSH provides an authentication mechanism based on cryptographic keys, called the "Public Key Authentication".
+
+port:
+SSH client connection - Port: 22
+Telnet  client connection - Port number: 23
+
+*Steps*:
+step1. Command for install ssh server:
+       pankali@kali:~$ sudo apt-get -y install openssh-server
+step2. Command for enable a service:  
+       pankali@kali:~$ sudo systemctl enable ssh
+
+step3. Command to check the status of a service:  
+       pankali@kali:~$ sudo systemctl status ssh
+
+step4.To install ufw command -:
+      pankali@kali:~$ sudo apt-get -y install ufw
+
+step5.configure user's server to allow incoming SSH connections, user can use this command: 
+      pankali@kali:~$ sudo ufw allow ssh
+
+step6.now user can connect to  ssh localhost:
+      1-pankali@kali:~$ ssh localhost
+      2-pankali@kali:~$ ssh 127.0.0.1
+
+enter the root password to autoconnect the localhost.
