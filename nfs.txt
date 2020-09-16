@@ -17,7 +17,7 @@ step3:create directory,vi mode,show file ,moving to dir,show file
       pankali@kali:~$ mkdir hello_dir
       pankali@kali:~$ vi pankaj.txt
       pankali@kali:~$ ls pankaj.txt
-      pankali@kali:~$ mv a.txt demo_dir
+      pankali@kali:~$ mv pankaj.txt hello_dir
       pankali@kali:~$ ls /home/pankali/hello_dir
 
 step4:Now we have to mention our /directory_path ip_address (permissions), we need to give rw (read,write) permission,
@@ -29,13 +29,16 @@ step4:Now we have to mention our /directory_path ip_address (permissions), we ne
       /home/pankali/hello_dir 127.0.0.1(rw)
 
 
-5. Now  exports:
+step5:Now  exports:
    pankali@kali:~$ sudo exportfs -ra
 
-6. To allow file sharing between systems on your network
-   pankali@kali:~$ sudo apt-get -y install nfs-common
-step7Now to mount the file:
-   pankali@kali:~$ sudo mount -t nfs 127.0.01:/home/pankali/hello_dir /home/hello_directory
+step6:To allow file sharing between systems on your network
+      pankali@kali:~$ sudo apt-get -y install nfs-common
+      
+step7:Now to mount the file:
+      pankali@kali:~$ sudo mount -t nfs 127.0.01:/home/pankali/hello_dir /home/hello_directory
+      
 step8:the mounted file in the directory that user has made:
-   pankali@kali:~$ cd /home/hello_directory
+       pankali@kali:~$ cd /home/hello_directory
+       
 step9:ls
