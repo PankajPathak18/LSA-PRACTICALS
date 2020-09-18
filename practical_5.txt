@@ -1,0 +1,121 @@
+                             Practical No: 5
+
+*Aim: Install Samba to share folders or files between Windows and Linux.
+
+
+*theory:
+   Samba is an open-source software suite that runs on Unix/Linux based platforms but is able to communicate with 
+   Windows clients like a native application. So Samba is able to provide this service by employing the Common 
+   Internet File System (CIFS).
+
+   At the heart of this CIFS is the Server Message Block (SMB) protocol. 
+   Samba does this by performing these 4 key things –
+   File & print services
+   Authentication and Authorization
+   Name resolution
+   Service announcement (browsing)
+
+   Samba can be run on many different platforms including Linux, Unix, OpenVMS and operating systems other
+   than Windows and allows the user to interact with a Windows client or server natively. It can basically be described as 
+   the Standard Windows interoperability suite of programs for Linux and Unix
+
+*Steps:
+
+step1:-Install Samba Server:
+       pankali@kali:~$ sudo apt-get -y install samba
+
+step2:-Start samba service:
+       Pankali@kali:~$ sudo systemctl start smbd
+
+step3:-check the status samba service:
+       pankali@kali:~$ sudo systemctl status smbd
+
+step4:-start nmbd service:
+       pankali@kali:~$ sudo systemctl start nmbd
+
+step5:-start nmbd service:
+       pankali@kali:~$ sudo systemctl status nmbd
+
+step6:-samba_shared directory in /home/pankali        ----(#creating a new directory )
+       pankali@kali:~$ mkdir samba_shared  
+      
+step7:-create one or two txt  files in /home/pankali/samba_shared 
+       pankali@kali:~$ cd samba_shared
+       pankali@kali:~/samba_shared$ touch a.txt b.txt c.txt
+
+step8:-go to samba folder 
+       pankali@kali:~$ cd /etc/samba
+       pankali@kali:~$ ls /etc/samba
+
+step9:-backup smb.conf 
+       pankali@kali:~$ cp smb.conf smb.conf_bkp 
+
+step10:-now configuration in /etc/smb.conf
+        pankali@kali:~$ sudo nano smb.conf
+
+step11:-Then delete all the smb.conf and then write:
+    [samba_shared]
+	comment = welcpome pankaj  in samba
+	path = /home/pankali/samba_shared
+	browseable = yes
+	read only = yes
+	guest ok = no
+
+ *ctrl x and then y and save the file.* 
+
+step12:-Now, smbclient if not there then the command is:
+        pankali@kali:~$ sudo apt-get -y install smbclient
+ 
+step13:-start/stop services of smbd and nmbd
+        pankali@kali:~$ sudo systemctl start smbd
+        pankali@kali:~$ sudo systemctl stop nmbd
+
+step14:-now check 
+        pankali@kali:~$ whoami
+
+step15:- 
+        pankali@kali:~$ sudo pdbedit -a -u $(whoami)
+
+step16:-Type and retype your password:
+        pankali@kali:~$ sudo pdbedit -L (to check all users)
+
+step17:-This will make any connectionn possible to connect:
+        $ sudo ufw allow from (your ip addr) any app Samba
+
+        In my case it was:
+        pankali@kali:~$ sudo ufw allow from 192.168.56.0/24 to any app Samba
+
+step18:-To check for your ip then use this command : 
+        pankali@kali:~$ ip a 
+
+step19:- Now to reload your firewall use:
+         pankali@kali:~$ sudo ufw reload  
+
+step20:-To check whether it's working or not, use:
+        $ sudo smbclient -U <username> -L  //your ip
+
+        In my case it was:
+        pankali@kali:~$ sudo smbcllient -U pankali -L  //192.168.56.101
+
+step21:- Now restart both smbd and nmbd services:
+         pankali@kali:~$ sudo systemctl restart smbd
+         pankali@kali:~$ sudo systemctl restart nmbd
+
+step22:- Do also check their status 
+        pankali@kali:~$ sudo systemctl status smbd
+        pankali@kali:~$ sudo systemctl status nmbd
+
+*Windows OS Part:
+- Once smbd and nmbd services are active now switch back to your windows OS and press windows + R key on keyboard and 
+   now a pop up box will open and their write smbclient ip address, 
+   here in my case it was //192.168.56.101 and press OK.
+
+-Now again one more pop up box will open, write the credentials of your Windows or Kali or whatever it would be.
+
+- Now in top of the address bar you can see Network > 192.168.56.101 (your ip address)
+   in this you can see samba_shared and documents folder.
+
+- In samba_shared server you can see all the txt files that we've made earlier, using touch command.
+
+-Once all your samba_shared files are visible in windows, then the sharing of files/folders have been 
+   successfully done between Windows and Kali Linux.
