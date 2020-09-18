@@ -97,25 +97,24 @@ step20:-To check whether it's working or not, use:
         In my case it was:
         pankali@kali:~$ sudo smbcllient -U pankali -L  //192.168.56.101
 
-step21:- Now restart both smbd and nmbd services:
+step21:- restart both smbd and nmbd services:
          pankali@kali:~$ sudo systemctl restart smbd
          pankali@kali:~$ sudo systemctl restart nmbd
 
-step22:- Do also check their status 
+step22:- status 
         pankali@kali:~$ sudo systemctl status smbd
         pankali@kali:~$ sudo systemctl status nmbd
 
-*Windows OS Part:
-- Once smbd and nmbd services are active now switch back to your windows OS and press windows + R key on keyboard and 
-   now a pop up box will open and their write smbclient ip address, 
-   here in my case it was //192.168.56.101 and press OK.
+step23:-*IN Windows OS :
+       - Once smbd and nmbd services are active now switch back to your windows OS and press windows + R key on keyboard and 
+         now a pop up box will open and their write smbclient ip address, 
+         here in my case it was //192.168.56.101 and press OK.
 
--Now again one more pop up box will open, write the credentials of your Windows or Kali or whatever it would be.
+      - Now again one more pop up box will open, write the credentials of your Windows or Kali or whatever it would be.
 
-- Now in top of the address bar you can see Network > 192.168.56.101 (your ip address)
-   in this you can see samba_shared and documents folder.
+      - see Network > 192.168.56.101 (your ip address) you can see samba_shared and documents folder.
 
-- In samba_shared server you can see all the txt files that we've made earlier, using touch command.
+      - In samba_shared server you can see all the txt files that we've made earlier, using touch command.
 
--Once all your samba_shared files are visible in windows, then the sharing of files/folders have been 
-   successfully done between Windows and Kali Linux.
+      -all your samba_shared files are visible in windows OS, then the sharing of files/folders have been 
+       successfully done between Windows and Kali Linux.
