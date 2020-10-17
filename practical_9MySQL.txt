@@ -1,0 +1,6 @@
+                                             Practical No:-9
+*Aim:- Install MySQL to configure database server.
+
+*Description:- MySQL 8.0 is the latest stable release of MySQL relational database management system. 
+               MySQL is a free to use Database Management System (RDBMS) that uses Structured Query Language (SQL). 
+               MySQL is designed to be stable, reliable, and flexible to use.
