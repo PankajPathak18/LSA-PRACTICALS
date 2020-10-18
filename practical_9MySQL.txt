@@ -1,6 +1,60 @@
                                              Practical No:-9
 *Aim:- Install MySQL to configure database server.
 
-*Description:- MySQL 8.0 is the latest stable release of MySQL relational database management system. 
-               MySQL is a free to use Database Management System (RDBMS) that uses Structured Query Language (SQL). 
-               MySQL is designed to be stable, reliable, and flexible to use.
+*Description:- 
+
+1- MySQL 8.0 is the latest stable release of MySQL relational database management system. 
+
+2- MySQL is a free to use Database Management System (RDBMS) that uses Structured Query Language (SQL). 
+
+3- MySQL is designed to be stable, reliable, and flexible to use.
+
+4- Oracle provides Debian packages for installing MySQL on Debian or Debian-like Linux systems. 
+   The packages are available through two different channels:
+
+   a. The MySQL APT Repository, supporting Debian and Ubuntu platforms. “Installing MySQL on Linux Using the MySQL APT Repository”.
+
+   b. The MySQL Developer Zone's Download Area.
+
+
+*Steps and Commands:
+
+step1:- update packages 
+        pankali@kali:~$ sudo apt update -y
+
+step2:- install wget
+        pankali@kali:~$ sudo apt install -y wget
+
+step3:- wget the mysql deb files getting:
+        pankali@kali:~$ sudo wget https://dev.mysql.com/get/mysql-apt-config_0.8.15-1_all.deb
+
+step4:- install the deb files:
+        pankali@kali:~$ sudo dpkg -i mysql-apt-config_0.8.15-1_all.deb
+      *select version mysql8.0
+      then Ok
+
+step5:- then update packages:
+        pankali@kali:~$ sudo apt update
+
+step6:- install community server:
+        pankali@kali:~$ sudo apt install mysql-community-server
+        *now create password 
+        then retype password
+
+step7:- now enable mysql:
+        pankali@kali:~$ sudo systemctl enable --now mysql
+
+step8:- check the status:
+        pankali@kali:~$ sudo systemctl status mysql
+
+step9:- if the database server is working fine by creating a test database:
+        pankali@kali:~$ sudo mysql -u root -p
+        *enter password 
+
+step10:- now we are enter in mysql server
+         *create database 
+         mysql>create database pankaj6089;
+
+step11:- now check database table  
+         mysql>show databases;
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------       
