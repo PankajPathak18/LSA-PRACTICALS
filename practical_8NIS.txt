@@ -1,0 +1,149 @@
+                                     Practical No:- 8
+
+
+*Aim:- Configure NIS in order to share user accounts in your local network.
+
+*Description:-
+
+-> NIS stands for Network Information Systems.
+-> NIS  is a network service that allows authentication and login information to
+   be stored on a centrally located server. 
+-> This includes the username and password database for login authentication, 
+   database of user groups, and the locations of home directories.
+-> NIS-sharing flat files (sharing resources).
+-> Files stored on certain machines, kind of database, can be queried, in tabular form, at 
+   least one column should be there.
+-> It is kind of kind of database in which each table has unique key, one or more column.
+-> And with query we need to identify it.
+   There are 2 types:
+   a. Master – Main Server
+   b. Slave – Secondary server, load balancing
+   If master server goes down then the Slave can take over Master server.
+-> clients and daemons for the Network Information Service (NIS) NIS, 
+   originally known as Yellow Pages (YP), is mostly used to let several
+   machines in a network share the same account information, such as the 
+   password file.
+
+
+*steps and commands:-
+
+step1:-update all the packages kali:
+       pankali@kali:~$ sudo apt-get update
+       or 
+       pankali@kali:~$ sudo apt update
+
+step2:-install NIS:
+       pankali@kali:~$ sudo apt-get install -y nis
+
+step3:-configure NIS:
+       pankali@kali:~$ sudo nano /etc/default/nis
+       ----------------------------------------------------------------------------
+       - In nis file -> /etc/default/nis file    in some changes
+       # Are we a NIS server and if so what kind (values: false, slave, master)?
+       **write:
+       NISSERVER=master
+        - And then scroll below 
+       # Are we a NIS client?
+       -write:
+       NISCLIENT=false
+       -------------------------------------------------------------------------------
+
+step4:-copy of NIS:
+       pankali@kali:~$ sudo cp /etc/default/nis /etc/default/nis_client
+
+step5:-In /etc/ypserv.securenets, 
+       **write our IP address and subnet mask:
+       pankali@kali:~$ sudo nano /etc/ypserv.securenets
+       --------------------------------------------------------------------------------
+       # Always allow access for localhost
+       255.0.0.0       127.0.0.0
+       # This line gives access to everybody. PLEASE ADJUST!
+       0.0.0.0         0.0.0.0
+       255.255.255.0   10.0.2.0            //our IP address and subnet mask
+       --------------------------------------------------------------------------------
+      
+step6:-now gmake (gmake(GNU make) - it's simply make on Linux systems).  
+       pankali@kali:~$ which gmake
+       pankali@kali:~$ sudo dpkg -S `which gmake`
+
+step7:-Now start & check the status of ypserv:
+       pankali@kali:~$ sudo systemctl start ypserv
+       pankali@kali:~$ sudo systemctl status ypserv
+
+step8:-run the yp:
+       pankali@kali:~$ sudo /usr/lib/yp/ypinit -m
+
+step9:-Now start & check status of NIS:
+       pankali@kali:~$ sudo systemctl start nis
+       pankali@kali:~$ sudo systemctl status nis
+
+step10:-restart and check status of rpcbind NIS:
+        pankali@kali:~$ sudo systemctl restart rpcbind nis
+        pankali@kali:~$ sudo systemctl status rpcbind nis
+
+step11:-Add a new user and set password:        ---------------------------------------------------------------                    
+        pankali@kali:~$ sudo adduser pankaj89    //note:- in last step after reboot use this login or password//
+        new password:****                       ---------------------------------------------------------------
+        retype password:****
+
+step12:-make your user:
+        pankali@kali:~$ cd /var/yp
+        pankali@kali:~$ sudo make
+
+step13:-Add a hostname in /etc/host: 
+        pankali@kali:~$ sudo nano /etc/hosts
+        -------------------------------------------------------------------------------
+        127.0.0.1     localhost
+        127.0.1.1     kali
+        127.0.0.1     pankaj.com                //add pankaj.com
+        127.0.0.1     kali.pankaj               //I’ve added kali.pankaj
+       --------------------------------------------------------------------------------
+step14:-In /etc/yp.conf/  file write the domain & server
+        pankali@kali:~$ sudo nano /etc/yp.conf
+
+        ------------------------------------------------------------------------------
+        # ypserver ypserver.netwotk.com
+        domain pankaj server kali.pankaj
+        ------------------------------------------------------------------------------
+        
+
+step15:-Now check file ls -lrth
+        pankali@kali:~$ cat ypservers
+
+step16:-hosts.byname name to check or see all your host name & domain name
+        pankali@kali:~$ sudo cat hosts.byname
+        pankali@kali:~$ sudo domainname
+ 
+step17:-now ping our hostname, or check working:
+        pankali@kali:~$ ping kali
+        pankali@kali:~$ ping pankaj.com
+        pankali@kali:~$ ping kali.pankaj
+
+step18:-run the yp:
+        pankali@kali:~$ sudo /usr/lib/yp/ypinit -m
+
+step19:-Now configure nsswitch.conf for NIS:
+        pankali@kali:~$ sudo nano /etc/nsswitch.conf
+        **do same changes
+        ------------------------------------------------------------------------------
+        passwd:        files systemd nis
+        group:         files systemd nis
+        shadow:        files nis
+        gshadow:       files
+        
+        hosts:         files mdns4_minimal [NOTFOUND=return] dsn
+        networks:      files
+        
+        protocols:     db files
+        services:      db files
+        ethers:        db files
+        rpc:           db files
+        
+        netgroup:      nis
+        --------------------------------------------------------------------------------
+
+step20:-Now reboot our Kali system
+        pankali@kali:~$ sudo reboot
+step21:-after reboot Login with the user that we have added above:-------(In step11)
+
+step22:-now we are Login successful in NIS server.
