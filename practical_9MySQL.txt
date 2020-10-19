@@ -31,7 +31,7 @@ step3:- wget the mysql deb files getting:
 step4:- install the deb files:
         pankali@kali:~$ sudo dpkg -i mysql-apt-config_0.8.15-1_all.deb
       *select version mysql8.0
-      then Ok
+      then OK
 
 step5:- then update packages:
         pankali@kali:~$ sudo apt update
