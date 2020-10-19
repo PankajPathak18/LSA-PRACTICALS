@@ -1,0 +1,65 @@
+                                       Practical No:- 3
+
+
+*Aim:- Configure NTP, Install and Configure NTP Server, Configure NTP Client.
+
+*Description:-
+
+->The Network Time Protocol (NTP) is a networking protocol for clock synchronization between computer systems over packet-switched, 
+  variable-latency data networks.
+->NTP is one of the oldest Internet protocols in current use. 
+
+->NTP is intended to synchronize all participating computers to within a few milliseconds of Coordinated Universal Time (UTC).
+->It uses the intersection algorithm, a modified version of Marzullo's algorithm, to select accurate time servers and is designed 
+  to mitigate the effects of variable network latency. 
+
+->The protocol is usually described in terms of a client-server model, but can as easily be used in peer-to-peer relationships where both peers consider 
+  the other to be a potential time source.Implementations send and receive timestamps using the User Datagram Protocol (UDP) on port number 123.
+->They can also use broadcasting or multicasting, where clients passively listen to time updates after an initial round-trip calibrating exchange.
+->NTP supplies a warning of any impending leap second adjustment, but no information about local time zones or daylight saving time is transmitted.
+
+->SNTP (Simple Network Time Protocol) is basically also NTP,
+  As a full implementation of the NTP protocol seemed too complicated for many systems, a simplified version of the protocol, namely SNTP had been defined.
+->The current protocol is version 4 (NTPv4).
+
+
+*steps and commands:-
+
+step1:-update packages:
+       pankali@kali:~$ sudo apt update -y
+
+step2:-check kali version:
+       pankali@kali:~$ uname -a
+
+step3:-install NTP:
+       pankali@kali:~$ sudo apt install ntp
+
+step4:-Then install SNTP:
+       pankali@kali:~$ sudo apt install sntp
+
+step5:-now we check  the sntp version:
+       pankali@kali:~$ sudo sntp --version
+       **Enter in etc floder
+       pankali@kali:~$ cd /etc
+       **ls all the files
+       pankali@kali:~$ ls -lrth *ntp.conf*
+
+step6:-To start & status the service: 
+       pankali@kali:~$ sudo systemctl start ntp
+       pankali@kali:~$ sudo systemctl status ntp
+
+step7:-To configure NTP:
+       pankali@kali:~$ sudo nano /etc/ntp.conf
+       ---------------------------------------------------------------------
+       # You need to talk to an NTP server or two (or three).
+       server localhost    ---(type)
+       ---------------------------------------------------------------------
+
+step8:-To check the conf file:
+       pankali@kali:~$ cat ntp.conf
+
+step9:-now restart & check the status of ntp service: 
+        pankali@kali:~$ sudo systemctl restart ntp
+        pankali@kali:~$ sudo systemctl status ntp
+step10:-To check connection:                     
+         panakli@kali:~$ sudo ntpq -p
