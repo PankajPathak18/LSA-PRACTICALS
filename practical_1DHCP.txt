@@ -29,7 +29,7 @@ Step6:-start the service
        pankali@kali:~$sudo systemctl start isc-dhcp-server.service
 
 Step7:-stop the service 
-      pankali@kali:~$sudo systemctl stop isc-dhcp-server.service
+       pankali@kali:~$sudo systemctl stop isc-dhcp-server.service
 
 
 
