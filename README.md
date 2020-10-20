@@ -1,5 +1,6 @@
-# LSA_Practicals
-
+# LSA_PRACTICALS                
+                                            ##INDEX
+________________________________________________________________________________________________________________________________________________________________________________
 Practical_1.	Install DHCP Server 
 
 Practical_2.	Initial settings: Add a User, Network Settings, Change to static IP address, Disable IPv6 if notneeded,
@@ -18,6 +19,11 @@ Practical_8.	Configure NIS Server in order to share users' accounts in your loca
 Practical_9.	Install MySQL to configure database server, InstallphpMyAdmin to operate MySQL on webbrowser from Clients.
 
 Practical_10.	Install Samba to share folders or files between Windows and Linux.
+
+________________________________________________________________________________________________________________________________________________________________________________
+
+# PANKAJ PATHAK
+
 
 
 
