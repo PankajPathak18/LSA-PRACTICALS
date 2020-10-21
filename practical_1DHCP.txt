@@ -16,7 +16,7 @@ Step1:-Command-install dhcp-server.
 Step2:-Now we configure dhcpd.conf by directly editing through a path 
       pankali@kali:~$sudo nano /etc/dhcp/dhcpd.conf
 
-Step3:-finding machine ip address by.
+Step3:-finding machine ip address by
       pankali@kali:~$ip a  or   $ip addr
 
 Step4:-then configure the subnet  and the netmask -
