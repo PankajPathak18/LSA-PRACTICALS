@@ -19,7 +19,7 @@ Practical_8 Configure NIS in order to share user accounts in your local network.
 ________________________________________________________________________________________________________________________________________________________________________________
 
 # NAME    : PANKAJ PATHAK
-# ROLL NO.: 6089
+# ROLL NO : 6089
 # CLASS   : TYCS
 
 
