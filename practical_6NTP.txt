@@ -1,4 +1,4 @@
-                                       Practical No:- 3
+                                       Practical No:- 6
 
 
 *Aim:- Configure NTP, Install and Configure NTP Server, Configure NTP Client.
