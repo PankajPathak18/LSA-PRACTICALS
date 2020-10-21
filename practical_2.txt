@@ -1,8 +1,6 @@
                                    Practical no.-2
 
-Aim   :Initial settings: Add a User, Network Settings, Change to static IP address, Disable IPv6 if not needed, Configure Services,
-       display the list of services which are running, Stop and turn OFF auto-start setting for a service if you don’t 
-       need it, Sudo Settings.
+Aim   :Initial settings:Add a user, Network settings, Configure services and List of services.
        
 Steps:-
 
@@ -33,3 +31,6 @@ step8 :Command stop a service:                   pankali@kali:~$sudo systemctl s
 
 step9 :Command auto-start a service:             pankali@kali:~$sudo systemctl restart <service_name>
 
+step10:List of services:
+       command :sudo service --status-all
+_________________________________________________________________________________________________________________________________________________________________________________
