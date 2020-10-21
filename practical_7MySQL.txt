@@ -1,4 +1,4 @@
-                                             Practical No:-9
+                                             Practical No:-7
 *Aim:- Install MySQL to configure database server.
 
 *Description:- 
