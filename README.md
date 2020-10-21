@@ -18,8 +18,9 @@ Practical_7 Install MySQL to configure database server
 Practical_8 Configure NIS in order to share user accounts in your local network.
 ________________________________________________________________________________________________________________________________________________________________________________
 
-# PANKAJ PATHAK
-
+# NAME    : PANKAJ PATHAK
+# ROLL NO.: 6089
+# CLASS   : TYCS
 
 
 
