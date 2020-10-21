@@ -60,7 +60,7 @@ step5:-In /etc/ypserv.securenets,
        # This line gives access to everybody. PLEASE ADJUST!
        0.0.0.0         0.0.0.0
        255.255.255.0   10.0.2.0            //our IP address and subnet mask
-       --------------------------------------------------------------------------------
+       ---------------------------------------------------------------------------------
       
 step6:-now gmake (gmake(GNU make) - it's simply make on Linux systems).  
        pankali@kali:~$ which gmake
