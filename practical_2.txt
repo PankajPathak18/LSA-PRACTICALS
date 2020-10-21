@@ -1,8 +1,8 @@
                                    Practical no.-2
 
-Aim   :Initial settings:Add a user, Network settings, Configure services and List of services.
+*Aim   :Initial settings:Add a user, Network settings, Configure services and List of services.
        
-Steps:-
+*Description , Steps & commmands:-
 
 
 Step1 : Addng a user:- user can be able to access  a file means read or write,A user can be added one or more added in a group too.
